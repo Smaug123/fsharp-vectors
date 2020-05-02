@@ -15,20 +15,17 @@ module TestVector =
             |> Vector.cons 6
         v1 |> Vector.toList |> shouldEqual [6 ; 5 ; 3]
 
-        let v2 = Vector.empty |> Vector.cons "hi" |> Vector.cons "bye"
+        let v2 = "bye" ** "hi" ** -()
         v2 |> Vector.toList |> shouldEqual ["bye" ; "hi"]
 
     [<Test>]
     let ``Pattern matching`` () =
-        match Vector.empty with
+        match -() with
         | Empty () -> ()
         //| Vec (a, b) -> failwith "" -- doesn't compile
 
         let v1 =
-            Vector.empty
-            |> Vector.cons 3
-            |> Vector.cons 5
-            |> Vector.cons 6
+            6 ** 5 ** 3 ** -()
 
         match v1 with
         | Vec (a , b) ->
@@ -45,10 +42,7 @@ module TestVector =
     [<Test>]
     let ``Vector concatenation`` () =
         let v1 =
-            Vector.empty
-            |> Vector.cons 3
-            |> Vector.cons 5
-            |> Vector.cons 6
+            6 ** 5 ** 3 ** -()
 
         let twice = Vector.append v1 v1
         let otherTwice =

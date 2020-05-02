@@ -75,3 +75,6 @@ module Patterns =
         List.head v, Vector (List.tail v)
 
     let (|Empty|) (_ : Vector<'a, Z>) = ()
+
+    let ( ~- ) () : Vector<'a, Z> = Vector.empty<'a>
+    let ( ** ) (x : 'a) (v : Vector<'a, 'n>) = Vector.cons x v
