@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Vector", "Vector\Vector.fsproj", "{02FD0C06-3231-4381-9FCD-91149836F0FB}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Vector.Test", "Vector.Test\Vector.Test.fsproj", "{27DA29C8-088E-4AEE-8195-982AF9C412E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02FD0C06-3231-4381-9FCD-91149836F0FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FD0C06-3231-4381-9FCD-91149836F0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FD0C06-3231-4381-9FCD-91149836F0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FD0C06-3231-4381-9FCD-91149836F0FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27DA29C8-088E-4AEE-8195-982AF9C412E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27DA29C8-088E-4AEE-8195-982AF9C412E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27DA29C8-088E-4AEE-8195-982AF9C412E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27DA29C8-088E-4AEE-8195-982AF9C412E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
