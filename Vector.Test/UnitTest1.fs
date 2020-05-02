@@ -19,7 +19,7 @@ module TestVector =
         v2 |> Vector.toList |> shouldEqual ["bye" ; "hi"]
 
         match Vector.empty with
-        | Empty () -> failwith ""
+        | Empty () -> ()
         //| Vec (a, b) -> failwith "" -- doesn't compile
 
         match v1 with
