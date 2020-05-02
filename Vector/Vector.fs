@@ -3,21 +3,22 @@
 type Z =
     private
     | Z
-    static member computed (a : Z) : Z = a
+    static member computed (_ : Z) : unit = ()
 
 type S<'a> =
     private
     | S
-    static member inline refine< ^n1, ^n2 when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2)> (_ : S<'n1>) : S<'n2> = Unchecked.defaultof<_>
-    static member inline computed< ^n1 when ^n1 : (static member computed : ^n1 -> ^n1)> (_ : S<'n1>) : S<'n1> = Unchecked.defaultof<_>
+    static member inline refine< ^n1, ^n2 when ^n1 : (static member refine : ^n1 -> ^n2)> (_ : S<'n1>) : S<'n2> = Unchecked.defaultof<_>
+    static member inline computed< ^n1 when ^n1 : (static member computed : ^n1 -> unit)> (_ : S<'n1>) : unit = ()
 
 type Add<'a, 'b> =
     private
     | Add
-    static member inline refine (_ : Add< Z, Z>) : Z = Unchecked.defaultof<_>
+    static member inline refine (_ : Add<Z, Z>) : Z = Unchecked.defaultof<_>
     static member inline refine< ^n1, ^n2> (_ : Add< S< ^n1>, S< ^n2>>) : S<S<Add< ^n1, ^n2>>> = Unchecked.defaultof<_>
-    static member inline refine< ^n1, ^n2 when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2) and ^n1 : (static member computed : ^n1 -> ^n2)> (_ : Add< Z, ^n1>) : ^n2 = Unchecked.defaultof<_>
-    static member inline refine< ^n1, ^n2 when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2) and ^n1 : (static member computed : ^n1 -> ^n2)> (_ : Add< ^n1, Z>) : ^n2 = Unchecked.defaultof<_>
+    //static member inline refine< ^n1, ^n2 when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2)> (_ : Add< Z, ^n1>) : ^n2 = Unchecked.defaultof<_>
+    static member inline refine< ^n1, ^n2> (_ : Add< Z, ^n1>) : ^n2 = Unchecked.defaultof<_>
+    static member inline refine< ^n1, ^n2 > (_ : Add< ^n1, Z>) : ^n2 = Unchecked.defaultof<_>
 
 type Vector<'a, 'len> =
     {
@@ -79,6 +80,7 @@ module Vector =
     let unsafeCast<'a, 'n, 'm> (a : Vector<'a, 'n>)  : Vector<'a, 'm> = { Elements = a.Elements }
 
     let inline cast< ^n2, ^n1, 'a when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2)> (a : Vector<'a, ^n1>) : Vector<'a, ^n2> = unsafeCast a
+    let inline cast'< ^n1, ^n2, 'a when (^n1 or ^n2) : (static member refine : ^n1 -> ^n2)> (a : Vector<'a, ^n1>) : Vector<'a, ^n2> = unsafeCast a
 
 [<AutoOpen>]
 module Patterns =

@@ -48,8 +48,8 @@ module TestVector =
 
         twice
         |> Vector.cast
-        |> Vector.cast<S<S<_>>, _, _>
-        |> Vector.cast<S<S<S<S<_>>>>, _, _>
+        |> Vector.cast
+        |> Vector.cast
         |> Vector.cast
         |> shouldEqual otherTwice
 
