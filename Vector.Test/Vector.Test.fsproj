@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="UnitTest1.fs" />
+        <Compile Include="TestVector.fs" />
     </ItemGroup>
 
     <ItemGroup>
