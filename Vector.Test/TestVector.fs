@@ -67,3 +67,90 @@ module TestVector =
         |> Vector.cast
         |> Vector.cast
         |> shouldEqual otherTwice
+
+    [<Test>]
+    let ``Vector replication`` () =
+        let v1 = 6 ** 5 ** 3 ** -()
+        let v2 = () ** () ** -()
+
+        let u = Vector.replicate v2 v1
+        let expected = 6 ** 5 ** 3 ** 6 ** 5 ** 3 ** -()
+        u
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> shouldEqual expected
+
+        let v1 = 6 ** 5 ** -()
+        let six = Vector.replicate (() ** () ** () ** -()) (() ** () ** -())
+
+        let u = Vector.replicate six v1
+        let expected =
+            6 ** 5
+            ** 6 ** 5
+            ** 6 ** 5
+            ** 6 ** 5
+            ** 6 ** 5
+            ** 6 ** 5
+            ** -()
+        u
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> Vector.cast
+        |> shouldEqual expected
+

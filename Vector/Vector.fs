@@ -60,6 +60,13 @@ module Vector =
     let head<'a, 'n> (Vector v : Vector<'a, S<'n>>) : 'a = List.head v
     let tail<'a, 'n> (Vector v : Vector<'a, S<'n>>) : Vector<'a, 'n> = List.tail v |> Vector
 
+    /// We currently have no way to express an integer literal at the type level, so we use a dummy first argument
+    /// which is a vector of the right length.
+    let replicate<'a, 'x, 'm, 'n> (Vector len : Vector<'x, 'm>) (Vector v : Vector<'a, 'n>) : Vector<'a, Times<'m, 'n>> =
+        List.replicate (List.length len) v
+        |> List.collect id
+        |> Vector
+
     [<RequireQualifiedAccess>]
     module Unsafe =
         let cast<'a, 'n, 'm> (Vector a : Vector<'a, 'n>) : Vector<'a, 'm> = Vector a
